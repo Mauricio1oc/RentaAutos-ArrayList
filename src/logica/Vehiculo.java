@@ -83,6 +83,10 @@ public class Vehiculo {
     public void setFechaCompra(LocalDate fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
-    
+
+    @Override
+    public String toString() {
+        return placa + " - " + marca + " - " + modelo;
+    }
     
 }
