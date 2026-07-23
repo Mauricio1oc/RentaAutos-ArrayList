@@ -216,22 +216,17 @@ public class DlgNewCliente extends javax.swing.JDialog {
 
             String nombre
                     = txtNombre.getText().trim();
+LocalDate fechaNacimiento = dtpFechaNacimiento.getDate();
 
-            LocalDate fechaNacimiento;
+if (fechaNacimiento == null) {
+    JOptionPane.showMessageDialog(
+            this,
+            "Seleccione una fecha de nacimiento."
+    );
+    dtpFechaNacimiento.requestFocus();
+    return null;
+}
 
-            try {
-                fechaNacimiento = LocalDate.parse(
-                        dtpFechaNacimiento.getText().trim(),
-                        DateTimeFormatter.ISO_LOCAL_DATE
-                );
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(
-                        this,
-                        "La fecha de nacimiento debe tener el formato yyyy-MM-dd."
-                );
-                dtpFechaNacimiento.requestFocus();
-                return null;
-            }
 
             String genero
                     = cmbGenero.getSelectedItem().toString();
