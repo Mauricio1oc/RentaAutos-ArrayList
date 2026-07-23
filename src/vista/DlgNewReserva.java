@@ -608,7 +608,15 @@ Reserva reserva = obtenerReserva();
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgNewReserva dialog = new DlgNewReserva(new javax.swing.JFrame(), true);
+                DlgNewReserva dialog = new DlgNewReserva(
+                        new javax.swing.JFrame(),
+                        true,
+                        new ReservaStore(),
+                        new java.util.ArrayList<Cliente>(),
+                        new java.util.ArrayList<Vehiculo>(),
+                        1,
+                        -1
+                );
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -624,8 +632,8 @@ Reserva reserva = obtenerReserva();
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JComboBox<String> cmbCliente;
-    private javax.swing.JComboBox<String> cmbVehiculo;
+    private javax.swing.JComboBox<Object> cmbCliente;
+    private javax.swing.JComboBox<Object> cmbVehiculo;
     private com.github.lgooddatepicker.components.DatePicker dtpFechaReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
